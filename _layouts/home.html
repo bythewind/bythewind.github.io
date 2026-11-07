@@ -1,0 +1,43 @@
+---
+layout: default
+---
+
+<section class="hero page-width" aria-labelledby="page-title">
+  <div class="hero-copy">
+    <h1 id="page-title">把问题写清楚，<br>答案才会留下。</h1>
+    <p>这里记录 Web 开发、静态站点和调试工具中的真实问题。写下的不只是结论，还有判断问题的那段路径。</p>
+    <a class="primary-link" href="{{ '/articles/' | relative_url }}">浏览全部文章</a>
+  </div>
+
+  <svg class="wind-mark" viewBox="0 0 620 250" aria-hidden="true">
+    <path class="wind-line wind-line-back" d="M18 178c76-113 139 55 217 2s142-91 216-34 107-13 151-91"/>
+    <path class="wind-line wind-line-front" d="M35 204c87-82 148 31 210-13s125-85 205-43 116 5 159-62"/>
+  </svg>
+</section>
+
+{% assign latest = site.posts.first %}
+{% if latest %}
+  <section class="latest page-width" aria-labelledby="latest-title">
+    <p class="section-label" id="latest-title">最近更新</p>
+    <a class="latest-entry" href="{{ latest.url | relative_url }}">
+      <time datetime="{{ latest.date | date_to_xmlschema }}">{{ latest.date | date: "%Y.%m.%d" }}</time>
+      <div>
+        <h2>{{ latest.title }}</h2>
+        <p>{{ latest.description | default: latest.excerpt | strip_html | truncate: 96 }}</p>
+      </div>
+    </a>
+  </section>
+{% endif %}
+
+<section class="article-index page-width" aria-labelledby="articles-title">
+  <div class="section-heading">
+    <h2 id="articles-title">继续阅读</h2>
+    <a href="{{ '/articles/' | relative_url }}">按时间查看全部 {{ site.posts.size }} 篇</a>
+  </div>
+
+  <div class="entry-list">
+    {% for post in site.posts offset: 1 limit: 5 %}
+      {% include post-list-item.html post=post %}
+    {% endfor %}
+  </div>
+</section>

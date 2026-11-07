@@ -1,0 +1,8 @@
+<header class="site-header page-width">
+  <a class="site-name" href="{{ '/' | relative_url }}">By the Wind</a>
+  <nav aria-label="主导航">
+    <a href="{{ '/articles/' | relative_url }}"{% if page.url == "/articles/" %} aria-current="page"{% endif %}>文章</a>
+    <a href="{{ '/about/' | relative_url }}"{% if page.url == "/about/" %} aria-current="page"{% endif %}>关于</a>
+    <a href="https://github.com/{{ site.github_username }}" rel="me">GitHub</a>
+  </nav>
+</header>

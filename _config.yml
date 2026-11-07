@@ -1,1 +1,27 @@
-　baseurl: /jekyll
+title: By The Wind
+description: 记录开发、部署与工具使用中的问题、判断和解决路径。
+author: By The Wind
+lang: zh-CN
+timezone: Asia/Shanghai
+
+url: "https://bythewind.github.io"
+baseurl: ""
+github_username: bythewind
+
+permalink: /articles/:title/
+markdown: kramdown
+highlighter: rouge
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+  - .bundle

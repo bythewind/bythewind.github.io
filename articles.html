@@ -1,0 +1,12 @@
+---
+layout: page
+title: 文章
+description: 开发、部署与工具使用中的问题记录。
+permalink: /articles/
+---
+
+<div class="archive-list">
+  {% for post in site.posts %}
+    {% include post-list-item.html post=post %}
+  {% endfor %}
+</div>
